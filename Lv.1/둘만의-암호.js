@@ -19,4 +19,15 @@ function solution(s, skip, index) {
   return answer;
 }
 
+// 풀이2
+function solution(s, skip, index) {
+  const alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+    .filter(v => !skip.includes(v));
+  let answer = '';
+  for (const v of s) {
+    answer += alphabet[(alphabet.indexOf(v) + index) % alphabet.length];
+  }
+  return answer;
+}
+
 // https://school.programmers.co.kr/learn/courses/30/lessons/155652
