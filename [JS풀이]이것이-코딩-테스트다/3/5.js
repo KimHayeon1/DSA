@@ -1,7 +1,7 @@
 let [n, k] = prompt().split(' ').map(str => parseInt(str));
 let result = 0;
 
-while (n <= k) {
+while (n >= k) {
   while (n % k !== 0) {
     n--;
     result++;
