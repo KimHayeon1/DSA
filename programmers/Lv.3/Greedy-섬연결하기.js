@@ -1,3 +1,4 @@
+// 크루스칼 알고리즘
 function find_parent(parent, x) {
     if (parent[x] !== x) {
         parent[x] = find_parent(parent, parent[x]);
@@ -27,6 +28,45 @@ function solution(n, costs) {
         }
     });
 
+    return answer;
+}
+
+// 프림 알고리즘(배열)
+function solution(n, costs) { 
+    const graph = {};
+
+    costs.forEach(v => {
+        let [start, end, cost] = v;
+        
+        if (!graph[start]) {
+            graph[start] = [[end, cost]];
+        } else {
+            graph[start].push([end, cost]);
+        }
+
+        if (!graph[end]) {
+            graph[end] = [[start, cost]];
+        } else {
+            graph[end].push([start, cost]);
+        }
+    });
+
+    const queue = graph[0]; // 후보
+    queue.sort((a, b) => b[1] - a[1]);
+    const connected = {0: true};
+    let answer = 0;
+
+    while (queue.length) {
+        let [node, cost] = queue.pop();
+
+        if (!connected[node]) {
+            connected[node] = true;
+            answer += cost;
+            queue.push(...graph[node]);
+            queue.sort((a, b) => b[1] - a[1]);
+        }
+    }
+    
     return answer;
 }
 
