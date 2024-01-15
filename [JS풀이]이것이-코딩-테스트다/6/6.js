@@ -12,7 +12,7 @@ for (let i = 0; i < count.length; i++) {
   }
 }
 
-console.log(answer);
+console.log(answer.join(' ');
 
 // forEach
 const array = [7, 5, 9, 0, 3, 1, 6, 2, 9, 1, 4, 8, 0, 5, 2];
@@ -29,4 +29,4 @@ count.forEach((v, i) => {
   }
 });
 
-console.log(answer);
+console.log(answer.join(' ');
