@@ -1,10 +1,10 @@
 const sorted = [];
 
 function merge(list, left, mid, right) {
-  let i, j, k, l;
-  i = left;
-  j = mid + 1;
-  k = left;
+  let i = left,
+    j = mid + 1,
+    k = left,
+    l;
 
   while (i <= mid && j <= right) {
     if (list[i] <= list[j]) {
@@ -30,10 +30,8 @@ function merge(list, left, mid, right) {
 }
 
 function mergeSort(list, left, right) {
-  let mid;
-
   if (left < right) {
-    mid = (left + right) / 2;
+    const mid = (left + right) / 2;
     mergeSort(list, left, mid);
     mergeSort(list, mid + 1, right);
     merge(list, left, mid, right);
