@@ -13,7 +13,7 @@ function solution(phone_book) {
     return true;
 }
 
-// Map
+// Map(O(N)보다 빠른 해시(O(1)) 테이블, 검색 트리(O(log(N)), 혹은 다른 자료구조)
 function solution(phone_book) {
     const phoneMap = new Map(phone_book.map(num => [num, null]));
 
