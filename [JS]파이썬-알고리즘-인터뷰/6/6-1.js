@@ -9,7 +9,7 @@ const longestPalindrome = (s) => {
   }
 
   if (s.length < 2 || s === s.split('').reverse().join('')) {
-    return 2;
+    return s;
   }
 
   let result = '';
