@@ -13,18 +13,20 @@ function solution(phone_book) {
     return true;
 }
 
-// Map(O(N)보다 빠른 해시(O(1)) 테이블, 검색 트리(O(log(N)), 혹은 다른 자료구조)
+// Set(O(N)보다 빠른 해시(O(1)) 테이블, 검색 트리(O(log(N)), 혹은 다른 자료구조)
 function solution(phone_book) {
-    const phoneMap = new Map(phone_book.map(num => [num, null]));
+    const phoneSet = new Set(phone_book);
 
     for (const number of phone_book) {
         for (let i = 1; i < number.length; i++) {
             const prefix = number.slice(0, i);
-            if (phoneMap.has(prefix)) {
+            if (phoneSet.has(prefix)) {
                 return false;
             }
         }
     }
+    
+    return true;
 }
 
 // 시간 초과
