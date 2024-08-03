@@ -61,3 +61,21 @@ class MinHeap {
     return min;
   }
 }
+
+// test
+minHeap.insert(5);
+minHeap.insert(7);
+minHeap.insert(3);
+minHeap.insert(2);
+minHeap.insert(6);
+minHeap.insert(8);
+console.log(minHeap.heap);
+
+minHeap.delete();
+console.log(minHeap.heap);
+minHeap.delete();
+console.log(minHeap.heap);
+minHeap.delete();
+console.log(minHeap.heap);
+minHeap.delete();
+console.log(minHeap.heap);
