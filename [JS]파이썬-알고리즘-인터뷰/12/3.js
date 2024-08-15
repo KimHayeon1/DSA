@@ -14,7 +14,6 @@ const iterativeBfs = (startV) => {
 
   while (queue.length) {
     const v = queue.shift();
-
     graph[v].forEach(w => {
       if (!discovered.includes(w)) {
         discovered.push(w);
