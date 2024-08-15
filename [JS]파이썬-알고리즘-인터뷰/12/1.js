@@ -19,3 +19,21 @@ const recursiveDfs = (v, discovered = []) => {
 };
 
 console.log(recursiveDfs(1));
+
+// 스택으로 변형
+const recursiveDfs = (startV) => {
+  const discovered = [startV];
+  const stack = [startV];
+
+  while (stack.length) {
+    const v = stack.pop();
+    graph[v].forEach((w) => {
+      if (!discovered.includes(w)) {
+        discovered.push(w);
+        stack.push(w);
+      }
+    });
+  }
+  
+  return discovered;
+};
