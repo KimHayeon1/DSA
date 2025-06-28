@@ -1,5 +1,40 @@
 // https://school.programmers.co.kr/learn/courses/30/lessons/87946?language=javascript
 
+// dfs
+const dfs = ({ dungeons, visited, k, cnt }) => {
+    let maxCount = cnt;
+
+    for (let i = 0; i < dungeons.length; i++) {
+        const [required, consume] = dungeons[i];
+
+        if (!visited[i] && k >= required) {
+            visited[i] = true;
+
+            const result = dfs({
+                dungeons,
+                visited,
+                k: k - consume,
+                cnt: cnt + 1
+            });
+            
+            if (result == dungeons.length) {
+                return result;
+            }
+
+            maxCount = Math.max(maxCount, result);
+            visited[i] = false;
+        }
+    }
+
+    return maxCount;
+};
+
+const solution = (k, dungeons) => {
+    const visited = new Array(dungeons.length).fill(false);
+    return dfs({ dungeons, visited, k, cnt: 0 });
+};
+
+// 완전탐색
 const getCases = (arr) => {
     let cases = [[]];
     
