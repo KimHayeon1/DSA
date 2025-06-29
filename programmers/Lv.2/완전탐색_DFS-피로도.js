@@ -1,6 +1,6 @@
 // https://school.programmers.co.kr/learn/courses/30/lessons/87946?language=javascript
 
-// dfs
+// 백트래킹 (DFS에서 불필요한 탐색을 제거한 알고리즘)
 const dfs = ({ dungeons, visited, k, cnt }) => {
     let maxCount = cnt;
 
@@ -8,21 +8,21 @@ const dfs = ({ dungeons, visited, k, cnt }) => {
         const [required, consume] = dungeons[i];
 
         if (!visited[i] && k >= required) {
-            visited[i] = true;
+            const newVisited = [...visited];
+            newVisited[i] = true;
 
             const result = dfs({
                 dungeons,
-                visited,
+                visited: newVisited,
                 k: k - consume,
                 cnt: cnt + 1
             });
-            
-            if (result == dungeons.length) {
+
+            if (result === dungeons.length) {
                 return result;
             }
 
             maxCount = Math.max(maxCount, result);
-            visited[i] = false;
         }
     }
 
