@@ -23,3 +23,8 @@ void deleteLastNode(linkedList_h* H) {
     temp->link = NULL;
     free(lastNode);
 }
+
+void deleteNode(listNode* prevNode, listNode* delNode) {
+    prevNode->link = delNode->link;
+    free(delNode);
+}
