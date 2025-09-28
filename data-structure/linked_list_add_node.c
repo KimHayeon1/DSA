@@ -20,3 +20,11 @@ void addNode(linkedList_h* H, int data) {
 }
 
 // -> : 구조체 멤버에 접근
+
+// --------------------------------------------------------- //
+void addNodetAfter(listNode* prevNode, int data) {
+    listNode* newNode = (listNode*)malloc(sizeof(listNode));
+    newNode->data = data;
+    newNode->link = prevNode->link;  // 새 노드의 link에 이전 노드 link 할당
+    prevNode->link = newNode;        // 이전 노드의 link에 새 노드 주소 할당
+}
