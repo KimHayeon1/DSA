@@ -68,3 +68,17 @@ listNode* findNodeByData(linkedList_h* H, int target) {
 
     return NULL;
 }
+ 
+// 특징 노드 삭제
+void deleteNodeAfter(linkedList_h* H, listNode* prevNode) {
+    listNode* delNode = prevNode->link;  // 삭제할 노드
+
+    // 삭제할 노드가 첫 번째 노드인 경우
+    if (delNode == H->head) {
+        H->head = delNode->link;  // head를 다음 노드로 이동
+    }
+
+    prevNode->link = delNode->link;
+
+    free(toDelete);
+}
