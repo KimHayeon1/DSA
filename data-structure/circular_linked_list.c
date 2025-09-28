@@ -53,3 +53,18 @@ void addNodeAfter(listNode* prevNode, int data) {
     newNode->link = prevNode->link;  // 새 노드의 link는 prevNode가 가리키던 노드
     prevNode->link = newNode;        // prevNode의 link는 새 노드
 }
+
+// 노드 찾기
+listNode* findNodeByData(linkedList_h* H, int target) {
+    listNode* temp = H->head;
+
+    do {
+        if (temp->data == target) {
+            return temp;
+        }
+        
+        temp = temp->link;
+    } while (temp != H->head); // 마지막 노드의 link에 의해, 다시 첫 노드로 돌아온 경우 종료
+
+    return NULL;
+}
